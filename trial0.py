@@ -19,12 +19,18 @@ class Ball(pygame.sprite.Sprite):
     
     def update(self):
         x, y = self.rect.center
-
         y += self.velocity
-        if y >= Y_MAX or y <= 0:
-            self.velocity *= -1
+
+        self.velocity += 0.2
+
+        if y >= Y_MAX:
+            self.velocity = -5
+        
+        if y <= 0:
+            self.velocity = 5
 
         self.rect.center = x, y
+        print y, self.velocity
 
             
         
